@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1039717561474",
+    "firebase_url": "https://mealresq.firebaseio.com",
+    "project_id": "mealresq",
+    "storage_bucket": "mealresq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039717561474:android:9791599f79a3421f3ff09b",
+        "android_client_info": {
+          "package_name": "com.example.mealresq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039717561474-7eo75sbmi5bb4qqsvidpa098apgq9v5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfUtFP5oXZFsGrAtRbbVgaLAkLf9c2yBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039717561474-7eo75sbmi5bb4qqsvidpa098apgq9v5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
