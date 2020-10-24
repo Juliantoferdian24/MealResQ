@@ -1,2 +1,2 @@
 # MealResQ
-RPL's project
+HCI's project
