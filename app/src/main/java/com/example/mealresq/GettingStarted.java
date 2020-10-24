@@ -6,18 +6,26 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 
 public class GettingStarted extends AppCompatActivity {
 
     CircularProgressButton gettingStarted;
+    ImageView logo;
+    TextView slogan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getting_started);
 
+
         gettingStarted = (CircularProgressButton) findViewById(R.id.gettingStarted);
+        logo = (ImageView) findViewById(R.id.logo);
+        slogan = (TextView) findViewById(R.id.slogan);
+
         gettingStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,5 +52,14 @@ public class GettingStarted extends AppCompatActivity {
                 started.execute();
             }
         });
+        logo.setY(-1000);
+        logo.animate().translationYBy(1000).setDuration(1000);
+
+        slogan.setX(-1000);
+        slogan.animate().translationXBy(1000).setDuration(1000);
+
+        gettingStarted.setY(500);
+        gettingStarted.animate().translationYBy(-500).setDuration(1000);
+
     }
 }
