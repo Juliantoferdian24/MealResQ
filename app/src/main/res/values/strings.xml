@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MealResQ</string>
     <string name="google_maps_key">AIzaSyAtXAl3vgHq48CVXs7bWbjkcMDYckAI-NA</string>
+    <string name="title_activity_sign_tabbed">SignTabbed</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
