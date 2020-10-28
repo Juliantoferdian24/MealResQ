@@ -4,4 +4,9 @@
     <string name="title_activity_sign_tabbed">SignTabbed</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="invalid_email">The e-mail address enter is invalid</string>
+    <string name="invalid_password">Use at least 8 characters for your secure password</string>
+    <string name="wrong_password">Wrong password. Please try again</string>
+    <string name="invalid_name">Your name is Invalid.</string>
+    <string name="different_password">Password confirmation doesn\'t match password, please try it again.</string>
 </resources>
