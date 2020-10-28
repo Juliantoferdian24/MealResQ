@@ -42,7 +42,7 @@ public class GettingStarted extends AppCompatActivity {
                     @Override
                     protected void onPostExecute(String s) {
                         if (s.equals("done")){
-                            Intent i = new Intent(GettingStarted.this, MainActivity.class);
+                            Intent i = new Intent(GettingStarted.this, LoginScreen.class);
                             startActivity(i);
                         }
                     }
