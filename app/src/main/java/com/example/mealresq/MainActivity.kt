@@ -22,21 +22,38 @@ class MainActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener{ item ->
 
-        if(item.itemId == R.id.navigation_map && activeFragment != 2){
+        if(item.itemId == R.id.navigation_map && activeFragment != 3){
             tb.title = "MAP"
             val mapFrag = MapFragment.newInstance()
-            nextFragment = 2
+            nextFragment = 3
             openFragment(mapFrag)
             return@OnNavigationItemSelectedListener true
         }
 
-        else if(item.itemId == R.id.navigation_profile && activeFragment != 1){
-            tb.title = "PROFILE"
-            val profileFragment = ProfileFragment.newInstance()
+        else if(item.itemId == R.id.navigation_home && activeFragment != 1){
+            tb.title = "HOME"
+            val homeFragment = HomeFragment.newInstance()
             nextFragment = 1
+            openFragment(homeFragment)
+            return@OnNavigationItemSelectedListener true
+        }
+
+        else if(item.itemId == R.id.navigation_favorite && activeFragment != 2){
+            tb.title = "FAVORITE"
+            val favFragment = FavFragment.newInstance()
+            nextFragment = 2
+            openFragment(favFragment)
+            return@OnNavigationItemSelectedListener true
+        }
+
+        else if(item.itemId == R.id.navigation_profile && activeFragment != 4){
+            tb.title = "Profile"
+            val profileFragment = ProfileFragment.newInstance()
+            nextFragment = 4
             openFragment(profileFragment)
             return@OnNavigationItemSelectedListener true
         }
+
         false
     }
 
@@ -82,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationView)
         val selectedItemId = bottomNavigation.selectedItemId
 
-        if (selectedItemId != R.id.navigation_profile){
+        if (selectedItemId != R.id.navigation_home){
             toHome()
             super.onBackPressed()
         }
@@ -90,11 +107,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun toHome(){
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationView)
-        bottomNavigation.selectedItemId = R.id.navigation_profile
+        bottomNavigation.selectedItemId = R.id.navigation_home
         activeFragment = 1
         nextFragment = 1
-        tb.title = "PROFILE"
+        tb.title = "HOME"
         tb.setTitleTextColor(resources.getColor(R.color.white))
-        openFragment(ProfileFragment.newInstance())
+        openFragment(HomeFragment.newInstance())
     }
 }

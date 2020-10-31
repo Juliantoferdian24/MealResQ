@@ -50,4 +50,18 @@ public class OnBoardActivity extends TutorialActivity {
     public void currentFragmentPosition(int position) {
 
     }
+
+    @Override
+    protected void onStart() {
+//        loadMainActivity();
+        super.onStart();
+    }
+
+//    private void loadMainActivity(){
+//        Firebase currentUser = mAuth!!.currentUser
+//        if (currentUser != null) {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
 }
