@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginScreen"
-    android:background="#3C3737">
+    android:background="#FEFAE0">
 
     <View
         android:id="@+id/topView"

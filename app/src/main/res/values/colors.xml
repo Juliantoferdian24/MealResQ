@@ -6,9 +6,6 @@
 
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
-
-    <color name="background">#FEFAE0</color>
-    <color name="background2">#EAE2B7</color>
-
+    <color name="colotProfile">#EAE2B7</color>
 
 </resources>
