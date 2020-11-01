@@ -7,11 +7,11 @@ object RestoranData{
         "Sate Padang Pak Tomy",
         "Nasi Goreng Pemuda")
 
-    private val restoranImages = intArrayOf(R.drawable.logo,
-        R.drawable.logo,
-        R.drawable.logo,
-        R.drawable.logo,
-        R.drawable.logo)
+    private val restoranImages = intArrayOf(R.drawable.martabak,
+        R.drawable.berger,
+        R.drawable.warteg,
+        R.drawable.sate,
+        R.drawable.nasgor)
 
     private val restoranRatings = arrayOf("4.0",
         "4.2",

@@ -2,6 +2,7 @@
 
 package com.example.mealresq
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,10 +37,11 @@ class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : R
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val restoran = listRestoran[position]
         holder.namaRestoran.text = restoran.name
-        Glide.with(holder.itemView.context)
-            .load(restoran.photo)
-            .apply(RequestOptions().override(100, 100))
-            .into(holder.fotoRestoran)
+        holder.fotoRestoran.setBackgroundResource(restoran.photo)
+//        Glide.with(holder.itemView.context)
+//            .load(restoran.photo)
+//            .apply(RequestOptions().override(100, 100))
+//            .into(holder.fotoRestoran.background)
         holder.ratingRestoran.text = restoran.rating
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listRestoran[holder.adapterPosition])
