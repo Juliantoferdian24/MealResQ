@@ -21,16 +21,16 @@
         android:id="@+id/gettingStarted"
         android:layout_width="242dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="70dp"
         android:background="@drawable/shape_default"
         android:fontFamily="sans-serif-black"
         android:text="Getting Started"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/slogan"
+        app:layout_constraintStart_toStartOf="@+id/slogan"
+        app:layout_constraintTop_toBottomOf="@+id/slogan"
         app:spinning_bar_color="#FFF"
         app:spinning_bar_padding="6dp"
         app:spinning_bar_width="4dp" />
@@ -39,6 +39,7 @@
         android:id="@+id/slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="70dp"
         android:fontFamily="@font/life_savers"
         android:text="Save Your Food\nSave Your Wallet\nSave Your Planet"
@@ -47,6 +48,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gettingStarted"
-        app:layout_constraintEnd_toEndOf="@+id/gettingStarted"
-        app:layout_constraintStart_toStartOf="@+id/gettingStarted" />
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
