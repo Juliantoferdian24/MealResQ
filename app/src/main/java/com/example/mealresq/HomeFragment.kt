@@ -1,5 +1,6 @@
 package com.example.mealresq
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,8 @@ class HomeFragment: Fragment() {
 
         listRestoranAdapter.setOnItemClickCallBack(object: ListRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Restaurant) {
+                val intent = Intent(activity, RestoranActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(context, data.name, Toast.LENGTH_SHORT).show()
             }
         })
