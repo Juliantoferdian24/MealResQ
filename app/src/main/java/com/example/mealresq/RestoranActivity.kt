@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 class RestoranActivity: AppCompatActivity() {
 
     private lateinit var rvMenu: RecyclerView
-    private var list: ArrayList<Restaurant> = arrayListOf()
+    private var list: ArrayList<Menu> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.restoran_layout)
@@ -17,7 +17,7 @@ class RestoranActivity: AppCompatActivity() {
         rvMenu = findViewById(R.id.rv_menu)
         rvMenu.setHasFixedSize(true)
 
-        list.addAll(RestoranData.listData)
+        list.addAll(MenuData.listData)
         showRecyclerList()
 
         super.onCreate(savedInstanceState)
@@ -25,12 +25,12 @@ class RestoranActivity: AppCompatActivity() {
 
     private fun showRecyclerList() {
         rvMenu.layoutManager = LinearLayoutManager(this)
-        val listRestoranAdapter = ListRestaurantAdapter(list)
+        val listRestoranAdapter = MenuRestaurantAdapter(list)
         rvMenu.adapter = listRestoranAdapter
         rvMenu.adapter = listRestoranAdapter
 
-        listRestoranAdapter.setOnItemClickCallBack(object: ListRestaurantAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Restaurant) {
+        listRestoranAdapter.setOnItemClickCallBack(object: MenuRestaurantAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Menu) {
                 Toast.makeText(applicationContext, data.name, Toast.LENGTH_SHORT).show()
             }
         })
