@@ -3,6 +3,7 @@ package com.example.mealresq;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -16,15 +17,19 @@ public class GettingStarted extends AppCompatActivity {
     CircularProgressButton gettingStarted;
     ImageView logo;
     TextView slogan;
+    Boolean is_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getting_started);
-
 
         gettingStarted = (CircularProgressButton) findViewById(R.id.gettingStarted);
         logo = (ImageView) findViewById(R.id.logo);
         slogan = (TextView) findViewById(R.id.slogan);
+
+
 
         gettingStarted.setOnClickListener(new View.OnClickListener() {
             @Override

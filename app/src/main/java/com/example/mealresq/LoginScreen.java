@@ -3,12 +3,15 @@ package com.example.mealresq;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -19,7 +22,10 @@ public class LoginScreen extends AppCompatActivity {
     private Button btnlogin;
     private TextView forgot_password;
 
+
     AwesomeValidation awesomeValidation;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class LoginScreen extends AppCompatActivity {
         input_password = (EditText) findViewById(R.id.inputPassword);
         btnlogin =  (Button) findViewById(R.id.btnLogin);
         forgot_password = (TextView) findViewById(R.id.forgotPassword);
+
 
 
         //Initialization Awesome Validation
@@ -44,6 +51,12 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (awesomeValidation.validate()){
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    Toast.makeText(LoginScreen.this, "Checked", Toast.LENGTH_SHORT);
+
                     Intent i = new Intent(LoginScreen.this, MainActivity.class);
                     startActivity(i);
                 }
@@ -68,7 +81,6 @@ public class LoginScreen extends AppCompatActivity {
         });
 
     }
-
     public void register(View view){
         Intent i = new Intent(LoginScreen.this, SignupScreen.class);
         startActivity(i);
