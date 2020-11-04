@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mealresq">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -20,6 +21,11 @@
         <activity android:name=".OnBoardActivity" />
         <activity android:name=".GettingStarted" />
         <activity android:name=".RestoranActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".CommunityActivity" />
+
+
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
