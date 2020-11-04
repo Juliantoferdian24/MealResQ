@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="#FEFAE0"
+    app:layout_constraintCircleRadius="100sp">
+
+
+    <View
+        android:id="@+id/topViewProfile"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:text="About Us"
+        android:textColor="#000000"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backToProfile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backToProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/topViewProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/keyboard_arrow_left_24px_1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Indonesia merupakan peringkat ke-2 negara
+        \npenghasil food waste terbesar di dunia dengan
+        \nrata-rata 300 kilogram makanan dibuang per
+        \norang setiap tahunnya. Meal Rescue,
+        \nmerupakan opsi untuk save your food and save
+        \nyour budget. Kami menyediakan opsi untuk
+        \npara masyarakat yang ingin mengurangi
+        \nfood waste dengan menjual makanan berlebih
+        \ndi marketplace kami serta orang lain dapat
+        \nmembantu Bumi dengan membeli makanan
+        \nberlebih tersebut."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topViewProfile"
+        app:layout_constraintVertical_bias="0.403" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
