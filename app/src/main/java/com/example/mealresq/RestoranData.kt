@@ -1,17 +1,17 @@
 package com.example.mealresq
 
 object RestoranData{
-    private val restoranNames = arrayOf("Martabak Bang Ali",
+    private val restoranNames = arrayOf("Roti Bakar Bang Ali",
         "Burger Bang Deni",
-        "Eden Farm",
+        "Rumah Makan Padang Setia",
         "Sate Padang Pak Tomy",
         "Nasi Goreng Pemuda")
 
-    private val restoranImages = intArrayOf(R.drawable.martabak,
-        R.drawable.berger,
-        R.drawable.warteg,
-        R.drawable.sate,
-        R.drawable.nasgor)
+    private val restoranImages = intArrayOf(R.drawable.rotinutella,
+        R.drawable.burgerayam,
+        R.drawable.nasipadangayam,
+        R.drawable.sateayamkacang,
+        R.drawable.nasgordadar)
 
     private val restoranRatings = arrayOf("4.0",
         "4.2",

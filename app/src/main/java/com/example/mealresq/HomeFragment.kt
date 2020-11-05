@@ -43,8 +43,10 @@ class HomeFragment: Fragment() {
         listRestoranAdapter.setOnItemClickCallBack(object: ListRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Restaurant) {
                 val intent = Intent(activity, RestoranActivity::class.java)
+                val str: String = data.name
+                intent.putExtra(RestoranActivity.STRINGNYA, str)
                 startActivity(intent)
-                Toast.makeText(context, data.name, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, data.name, Toast.LENGTH_SHORT).show()
             }
         })
     }
