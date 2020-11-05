@@ -1,12 +1,17 @@
 package com.example.mealresq
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import kotlinx.android.synthetic.main.alert_dialog.view.*
 
 class RestoranActivity: AppCompatActivity() {
 
@@ -42,7 +47,7 @@ class RestoranActivity: AppCompatActivity() {
 
         listRestoranAdapter.setOnItemClickCallBack(object: MenuRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Menu) {
-                Toast.makeText(applicationContext, data.name, Toast.LENGTH_SHORT).show()
+                showDialogBox()
             }
         })
     }
@@ -79,5 +84,25 @@ class RestoranActivity: AppCompatActivity() {
             }
         }
 
+    }
+
+    fun cartClick(view: View) {
+        val intent = Intent(this, CartActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun showDialogBox(){
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.alert_dialog, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setTitle("Tambahkan kedalam cart?")
+        val mAlertDialog = mBuilder.show()
+        mDialogView.okay.setOnClickListener {
+            mAlertDialog.dismiss()
+            // TODO: 05/11/20 kalo click okay
+        }
+        mDialogView.cancel.setOnClickListener {
+            mAlertDialog.dismiss()
+        }
     }
 }

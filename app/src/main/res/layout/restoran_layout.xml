@@ -215,6 +215,7 @@
         android:text="My Cart"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:elevation="100dp"/>
+        android:elevation="100dp"
+        android:onClick="cartClick"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
