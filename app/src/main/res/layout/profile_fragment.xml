@@ -10,186 +10,172 @@
     app:layout_constraintCircleRadius="100sp">
 
 
-    <ImageButton
-        android:id="@+id/goToMyBadges"
-        android:layout_width="28dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
-        android:background="#0FEFAE00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToEditProfile"
-        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
-
-    <ImageButton
-        android:id="@+id/goToEditProfile"
-        android:layout_width="28dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="100dp"
-        android:background="#FEFAE0"
-        android:backgroundTint="#FEFAE0"
-        android:tint="#80000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
-
-    <ImageButton
-        android:id="@+id/goToCommunity"
-        android:layout_width="28dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:background="#FEFAE0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToMyBadges"
-        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
-
-    <ImageButton
-        android:id="@+id/goToAboutUs"
-        android:layout_width="28dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:background="#FEFAE0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToYourImpact"
-        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
-
-    <View
-        android:id="@+id/view2"
+    <RelativeLayout
+        android:id="@+id/rellay1"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_bg2"
-        android:foregroundTint="#000000"
-        android:shape="rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topViewProfile" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/grad"
+        android:paddingBottom="20dp">
 
-    <View
-        android:id="@+id/topViewProfile"
+        <RelativeLayout
+            android:id="@+id/imgUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_border">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="9dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle"
+                android:padding="3dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_user" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Panggil AKu Mawar"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:text="Angke, Jakarta"
+            android:textAllCaps="true"
+            android:textColor="@color/address"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linlay1"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="My Profile"
-        android:textColor="#000000"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/rellay1">
 
-    <TextView
-        android:id="@+id/FoodSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Food Saved"
-        android:textColor="#80000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/followersBg"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
 
-    <TextView
-        android:id="@+id/PofilePrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Rp. 5.500"
-        android:textColor="#80000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/YouSaved" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/foodSavedCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="10"
-        android:textColor="#80000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/FoodSaved"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="10"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/YouSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
-        android:text="You Saved"
-        android:textColor="#80000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/FoodSaved" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Food Saved"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:srcCompat="@drawable/account_circle_24px_1" />
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/backToMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/topViewProfile"
-        app:layout_constraintTop_toTopOf="@+id/topViewProfile"
-        app:srcCompat="@drawable/keyboard_arrow_left_24px_1" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/followingBg"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Rp. 57.500"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="You Saved"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/editProfile"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="Edit Profile"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/goToEditProfile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/linlay1" />
 
     <TextView
         android:id="@+id/yourImpact"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:text="Your Impact"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/goToYourImpact"
-        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/joinOurCommunity" />
 
     <TextView
         android:id="@+id/aboutUs"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:text="About Us"
         android:textColor="#000000"
@@ -201,8 +187,9 @@
 
     <TextView
         android:id="@+id/myBadges"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="My Badges"
         android:textColor="#000000"
@@ -213,15 +200,14 @@
 
     <TextView
         android:id="@+id/joinOurCommunity"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:text="Join Community"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/goToCommunity"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myBadges" />
 
@@ -229,12 +215,56 @@
         android:id="@+id/goToYourImpact"
         android:layout_width="28dp"
         android:layout_height="31dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="32dp"
         android:background="#FEFAE0"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/goToCommunity"
+        app:layout_constraintStart_toStartOf="@+id/goToCommunity"
         app:layout_constraintTop_toBottomOf="@+id/goToCommunity"
         app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 
+    <ImageButton
+        android:id="@+id/goToMyBadges"
+        android:layout_width="28dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
+        android:background="#0FEFAE00"
+        app:layout_constraintEnd_toEndOf="@+id/goToEditProfile"
+        app:layout_constraintStart_toStartOf="@+id/goToEditProfile"
+        app:layout_constraintTop_toBottomOf="@+id/goToEditProfile"
+        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 
+    <ImageButton
+        android:id="@+id/goToEditProfile"
+        android:layout_width="28dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="100dp"
+        android:background="#FEFAE0"
+        android:backgroundTint="#FEFAE0"
+        android:tint="#80000000"
+        app:layout_constraintBottom_toBottomOf="@+id/editProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editProfile"
+        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
+
+    <ImageButton
+        android:id="@+id/goToCommunity"
+        android:layout_width="28dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
+        android:background="#FEFAE0"
+        app:layout_constraintEnd_toEndOf="@+id/goToMyBadges"
+        app:layout_constraintStart_toStartOf="@+id/goToMyBadges"
+        app:layout_constraintTop_toBottomOf="@+id/goToMyBadges"
+        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
+
+    <ImageButton
+        android:id="@+id/goToAboutUs"
+        android:layout_width="28dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
+        android:background="#FEFAE0"
+        app:layout_constraintEnd_toEndOf="@+id/goToYourImpact"
+        app:layout_constraintStart_toStartOf="@+id/goToYourImpact"
+        app:layout_constraintTop_toBottomOf="@+id/goToYourImpact"
+        app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
