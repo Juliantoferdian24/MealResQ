@@ -2,7 +2,7 @@
 RPL's project
 <br><br>
 
-Real-time heatmap and person detection
+MealResQ
 <table>
   <tr>
     <td>  </td>
