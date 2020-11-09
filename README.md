@@ -1,5 +1,5 @@
 # MealResQ
-HCI's project
+RPL's project
 <br><br>
 
 Real-time heatmap and person detection
