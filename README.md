@@ -5,9 +5,9 @@ HCI's project
 Real-time heatmap and person detection
 <table>
   <tr>
-    <td>Homepage</td>
-     <td>Person detection to update heatmap</td>
-     <td>Heatmap presented in maps</td>
+    <td>  </td>
+     <td>  </td>
+     <td>  </td>
   </tr>
   <tr>
     <td><img src="screenshots/homescreen.jpg" width=270 height=480></td>
@@ -20,9 +20,9 @@ Real-time heatmap and person detection
 Crowd prediction using prophet time series algorithm
 <table>
   <tr>
-    <td>Covid-19 risk map</td>
-     <td>Feature to predict crowd presented in heatmap</td>
-     <td>Feature to predict crowd presented in heatmap(1)</td>
+    <td>  </td>
+     <td>  </td>
+     <td>  </td>
   </tr>
   <tr>
     <td><img src="screenshots/risiko.jpg" width=270 height=480></td>
