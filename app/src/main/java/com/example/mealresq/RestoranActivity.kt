@@ -1,17 +1,22 @@
 package com.example.mealresq
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import kotlinx.android.synthetic.main.alert_dialog.view.*
+
 
 class RestoranActivity: AppCompatActivity() {
 
@@ -19,6 +24,7 @@ class RestoranActivity: AppCompatActivity() {
     private var list: ArrayList<Menu> = arrayListOf()
     private lateinit var collapsingToolbar: CollapsingToolbarLayout
     private lateinit var fotoRestoran: ImageView
+    private lateinit var phone: ImageView
 
     companion object {
         const val STRINGNYA = ""
@@ -32,9 +38,36 @@ class RestoranActivity: AppCompatActivity() {
 
         collapsingToolbar = findViewById(R.id.collapsing_toolbar)
         fotoRestoran = findViewById(R.id.gambar_restoran)
+        phone = findViewById(R.id.phone)
+
 
         initList()
         showRecyclerList()
+        phone.setOnClickListener(View.OnClickListener {
+            if (Build.VERSION.SDK_INT > 22) {
+                if (ActivityCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CALL_PHONE
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    // TODO: Consider calling
+                    ActivityCompat.requestPermissions(
+                        this@RestoranActivity,
+                        arrayOf(Manifest.permission.CALL_PHONE),
+                        101
+                    )
+                    return@OnClickListener
+                }
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:" + "083890769297")
+                startActivity(callIntent)
+            } else {
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:" + "083890769297")
+                startActivity(callIntent)
+            }
+        })
+
 
         super.onCreate(savedInstanceState)
     }
@@ -45,7 +78,8 @@ class RestoranActivity: AppCompatActivity() {
         rvMenu.adapter = listRestoranAdapter
         rvMenu.adapter = listRestoranAdapter
 
-        listRestoranAdapter.setOnItemClickCallBack(object: MenuRestaurantAdapter.OnItemClickCallback {
+        listRestoranAdapter.setOnItemClickCallBack(object :
+            MenuRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Menu) {
                 showDialogBox()
             }

@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.support.v4.alert
+import org.jetbrains.anko.yesButton
 
 
 class ProfileFragment: Fragment(){
@@ -49,13 +52,19 @@ class ProfileFragment: Fragment(){
             startActivity(intent)
         }
         tgoToLogOut.setOnClickListener(View.OnClickListener {
-            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-            val editor = preferences.edit()
-            editor.putString("remember", "false")
-            editor.apply()
+            alert("Are you sure want to logout?"){
+                noButton {  }
+                yesButton {
+                    val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+                    val editor = preferences.edit()
+                    editor.putString("remember", "false")
+                    editor.apply()
 
-            val i = Intent(context, GettingStarted::class.java)
-            startActivity(i)
+                    val i = Intent(context, GettingStarted::class.java)
+                    startActivity(i)
+                }
+            }.show()
+
         })
 
 
