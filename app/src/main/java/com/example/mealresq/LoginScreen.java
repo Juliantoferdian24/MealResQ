@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ public class LoginScreen extends AppCompatActivity {
     private EditText input_email,input_password;
     private Button btnlogin;
     private TextView forgot_password;
-
+    private ImageView googleLogin, facebookLogin;
 
     AwesomeValidation awesomeValidation;
 
@@ -36,8 +37,8 @@ public class LoginScreen extends AppCompatActivity {
         input_password = (EditText) findViewById(R.id.inputPassword);
         btnlogin =  (Button) findViewById(R.id.btnLogin);
         forgot_password = (TextView) findViewById(R.id.forgotPassword);
-
-
+        googleLogin = (ImageView) findViewById(R.id.googleLogin);
+        facebookLogin = (ImageView) findViewById(R.id.facebookLogin);
 
         //Initialization Awesome Validation
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
@@ -55,7 +56,6 @@ public class LoginScreen extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("remember", "true");
                     editor.apply();
-                    Toast.makeText(LoginScreen.this, "Checked", Toast.LENGTH_SHORT);
 
                     Intent i = new Intent(LoginScreen.this, MainActivity.class);
                     startActivity(i);
@@ -79,7 +79,18 @@ public class LoginScreen extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        googleLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Google Login", Toast.LENGTH_SHORT).show();
+            }
+        });
+        facebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Facebook Login", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     public void register(View view){
         Intent i = new Intent(LoginScreen.this, SignupScreen.class);

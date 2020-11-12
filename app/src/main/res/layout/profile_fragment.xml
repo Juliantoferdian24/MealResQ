@@ -47,7 +47,7 @@
             android:fontFamily="sans-serif-light"
             android:text="Panggil AKu Mawar"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:textSize="24sp" />
 
 
         <TextView
@@ -159,42 +159,42 @@
         app:layout_constraintTop_toBottomOf="@+id/linlay1" />
 
     <TextView
-        android:id="@+id/yourImpact"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="Your Impact"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toStartOf="@+id/goToYourImpact"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joinOurCommunity" />
-
-    <TextView
         android:id="@+id/aboutUs"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:text="About Us"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/goToAboutUs"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourImpact" />
+        app:layout_constraintTop_toBottomOf="@+id/joinOurCommunity" />
 
     <TextView
-        android:id="@+id/myBadges"
+        android:id="@+id/logout"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="My Badges"
+        android:text="Log out"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintEnd_toStartOf="@+id/goToMyBadges"
+        app:layout_constraintEnd_toStartOf="@+id/goToLogout"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutUs" />
+
+    <TextView
+        android:id="@+id/yourImpact"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Your Impact"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/goToYourImpact"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editProfile" />
 
@@ -203,16 +203,16 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:text="Join Community"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/goToCommunity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myBadges" />
+        app:layout_constraintTop_toBottomOf="@+id/yourImpact" />
 
     <ImageButton
-        android:id="@+id/goToYourImpact"
+        android:id="@+id/goToAboutUs"
         android:layout_width="28dp"
         android:layout_height="31dp"
         android:layout_marginTop="32dp"
@@ -223,7 +223,7 @@
         app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 
     <ImageButton
-        android:id="@+id/goToMyBadges"
+        android:id="@+id/goToYourImpact"
         android:layout_width="28dp"
         android:layout_height="31dp"
         android:layout_marginTop="32dp"
@@ -252,19 +252,19 @@
         android:layout_height="31dp"
         android:layout_marginTop="32dp"
         android:background="#FEFAE0"
-        app:layout_constraintEnd_toEndOf="@+id/goToMyBadges"
-        app:layout_constraintStart_toStartOf="@+id/goToMyBadges"
-        app:layout_constraintTop_toBottomOf="@+id/goToMyBadges"
+        app:layout_constraintEnd_toEndOf="@+id/goToYourImpact"
+        app:layout_constraintStart_toStartOf="@+id/goToYourImpact"
+        app:layout_constraintTop_toBottomOf="@+id/goToYourImpact"
         app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 
     <ImageButton
-        android:id="@+id/goToAboutUs"
+        android:id="@+id/goToLogout"
         android:layout_width="28dp"
         android:layout_height="31dp"
         android:layout_marginTop="32dp"
         android:background="#FEFAE0"
-        app:layout_constraintEnd_toEndOf="@+id/goToYourImpact"
-        app:layout_constraintStart_toStartOf="@+id/goToYourImpact"
-        app:layout_constraintTop_toBottomOf="@+id/goToYourImpact"
+        app:layout_constraintEnd_toEndOf="@+id/goToAboutUs"
+        app:layout_constraintStart_toStartOf="@+id/goToAboutUs"
+        app:layout_constraintTop_toBottomOf="@+id/goToAboutUs"
         app:srcCompat="@drawable/keyboard_arrow_left_24px_2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
