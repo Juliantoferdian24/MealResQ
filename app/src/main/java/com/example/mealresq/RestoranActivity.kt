@@ -1,6 +1,7 @@
 package com.example.mealresq
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -25,7 +26,7 @@ class RestoranActivity: AppCompatActivity() {
     private lateinit var collapsingToolbar: CollapsingToolbarLayout
     private lateinit var fotoRestoran: ImageView
     private lateinit var phone: ImageView
-
+    private lateinit var instagram: ImageView
     companion object {
         const val STRINGNYA = ""
     }
@@ -39,7 +40,7 @@ class RestoranActivity: AppCompatActivity() {
         collapsingToolbar = findViewById(R.id.collapsing_toolbar)
         fotoRestoran = findViewById(R.id.gambar_restoran)
         phone = findViewById(R.id.phone)
-
+        instagram = findViewById(R.id.instagram)
 
         initList()
         showRecyclerList()
@@ -67,7 +68,23 @@ class RestoranActivity: AppCompatActivity() {
                 startActivity(callIntent)
             }
         })
+        instagram.setOnClickListener(View.OnClickListener {
+            val uri = Uri.parse("http://instagram.com/_u/burgerking.id")
+            val likeIng = Intent(Intent.ACTION_VIEW, uri)
 
+            likeIng.setPackage("com.instagram.android")
+
+            try {
+                startActivity(likeIng)
+            } catch (e: ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("http://instagram.com/burgerking.id")
+                    )
+                )
+            }
+        })
 
         super.onCreate(savedInstanceState)
     }
