@@ -27,6 +27,7 @@ Meal Rescue merupakan sebuah aplikasi diciptakan atas dasar kekhawatiran tentang
 <br>
 <br>
 <br>
+Filosofu
 Terdapat berbagai Activity yang dapat dilakukan pada aplikasi ini:
 1. Offline Mode
 <table>
@@ -67,5 +68,49 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
  <br>
 <br>
 <br>
- Untuk meng-clone dan menggunakan aplikasi kami, pertama anda dapat mendownload source code kami. IDE 
- yang disarankan adalah Android Studio. Setelah source code dalam zip didownload, zip dapat diextract. Melalui Android Studio, anda bisa memilih open project di bagian menu File, dan pilih folder source code yang sudah di extract. Lalu pilih MealResQ Master dengan gambar android dan buka file tersebut. Setelah itu anda perlu melakukan sync gradle agar library yang dibutuhkan dapat di install di perangkat anda. Setelah itu anda perlu perangkat sebagai emulator, bisa menggunakan handphone android yang sudah dalam developer mode, ataupun
+ Untuk meng-clone dan menggunakan aplikasi kami, pertama anda dapat mendownload source code kami dengan mengclick tombol hijau pada gambar dibawah. 
+ <table>
+  <tr>
+    <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/step1.jpg" width=1310 height=217></td>    
+  </tr>
+ </table>
+Setelah itu buka IDE kalian, tetapi daalam petunjuk ini kita menggunakan Android Studio. Klik menu File dan pilih Project version control.
+ <table>
+  <tr>
+    <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/step3.jpg" width=655 height=541></td>    
+  </tr>
+ </table>
+Window baru akan terbuka. Masukan https://github.com/nthnfaustine/MealResQ.git pada URL dan arahkan Directory ke source code yang sudah didownload sebelumnya
+ <table>
+  <tr>
+    <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/step2.jpg" width=975 height=570></td>    
+  </tr>
+ </table>
+ Kemudia klik tombol clone dan tunggu proses selesai. Setelah itu kita perlu melakukan sync gradle untuk mendownload library - library yang dibutuhkan dengan menekan tombol gradle seperti gambar dibawah
+  <table>
+  <tr>
+    <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/step4.jpg" width=820 height=115></td>    
+  </tr>
+ </table>
+ Langkah terakhir adalah mempersiapkan emulator. Anda dapat menggunakan emulator ADV yang disediakan oleh Android Studio, tetapi disarankan menggunakan handphone Android
+dalam developer mode. Anda hanya perlu menghungkan device anda dengan PC yang digunakan. Setelah itu klik tombol run untuk menginstall aplikasi kami pada handphone anda
+  <table>
+  <tr>
+    <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/step5.jpg" width=820 height=115></td>    
+  </tr>
+ </table>
