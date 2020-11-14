@@ -1,5 +1,5 @@
 # MealResQ
-RPL's project
+HCI's Project
 <br><br>
 
 Meal Rescue, merupakan aplikasi berbasis android yang 
@@ -24,6 +24,11 @@ Aplikasi ini ditujukan kepada siapapun yang ingin membantu mengurangi foodwaste 
 <br>
 <br>
 Meal Rescue merupakan sebuah aplikasi diciptakan atas dasar kekhawatiran tentang kondisi foodwaste yang ada di Indonesia. Menurut data dari Economist Intelligence Unit, Indonesia merupakan negara penghasil foodwaste terbesar kedua di Dunia dengan rata-rata 300 Kilogram makanan dibuang per orang setiap tahunnya.
+<br>
+<br>
+<br>
+Terdapat berbagai Activity yang dapat dilakukan pada aplikasi ini:
+1. Offline Mode
 
 
 <table>
@@ -33,11 +38,13 @@ Meal Rescue merupakan sebuah aplikasi diciptakan atas dasar kekhawatiran tentang
      <td>  </td>
   </tr>
   <tr>
-    <td><img src="screenshots/messageImage_1604307335265.jpg" width=270 height=480></td>
-    <td><img src="screenshots/messageImage_1604307378085.jpg" width=270 height=480></td>
-    <td><img src="screenshots/messageImage_1604307404908.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Offline Mode/1.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Offline Mode/2.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Offline Mode/3.jpg" width=270 height=480></td>
   </tr>
  </table>
+Aplikasi dimulai dengan splash screen kemudian dilanjut dengan Onboarding Screen, kemudian disusul oleh getting started screen sambil melakukan pengecekan akan koneksi.
+Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi internet, maka akan muncul No Connection SCreen dengan animasi burung hantu ekstensi (.gif)
 
 <br><br>
 Crowd prediction using prophet time series algorithm
