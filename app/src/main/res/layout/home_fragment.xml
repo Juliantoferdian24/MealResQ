@@ -37,12 +37,25 @@
                 android:src="@drawable/ic_cart"
                 app:tint="@color/quantum_grey" />
 
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchview_restoran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_bg2"
+                app:queryBackground="@null"
+                app:iconifiedByDefault="false"
+                android:layout_below="@id/hiresq"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:queryHint="What would you like to eat?" />
+
             <TextView
                 android:id="@+id/topres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_below="@+id/hiresq"
+                android:layout_below="@+id/searchview_restoran"
                 android:layout_marginTop="30dp"
                 android:text="Top Restaurants"
                 android:textColor="@color/black"

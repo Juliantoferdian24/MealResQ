@@ -24,6 +24,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <include layout="@layout/bottomsheet" />
+<!--    <include layout="@layout/bottomsheet" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

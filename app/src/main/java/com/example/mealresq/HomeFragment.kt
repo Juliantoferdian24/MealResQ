@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ class HomeFragment: Fragment() {
     private lateinit var rvRestoran: RecyclerView
     private lateinit var rvRestoranNearMe: RecyclerView
     private var list: ArrayList<Restaurant> = arrayListOf()
+    private lateinit var svRestaurant: androidx.appcompat.widget.SearchView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         rootView = inflater.inflate(R.layout.home_fragment, container, false)
@@ -28,7 +30,9 @@ class HomeFragment: Fragment() {
         rvRestoranNearMe.setHasFixedSize(true)
 
         list.addAll(RestoranData.listData)
+        svRestaurant = rootView.findViewById(R.id.searchview_restoran)
         showRecyclerList()
+
 
         return rootView
     }
@@ -48,6 +52,18 @@ class HomeFragment: Fragment() {
                 startActivity(intent)
 //                Toast.makeText(context, data.name, Toast.LENGTH_SHORT).show()
             }
+        })
+
+        svRestaurant.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                listRestoranAdapter.filter.filter(newText)
+                return false
+            }
+
         })
     }
 

@@ -6,15 +6,21 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : RecyclerView.Adapter<ListRestaurantAdapter.ListViewHolder>() {
+class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : RecyclerView.Adapter<ListRestaurantAdapter.ListViewHolder>(), Filterable {
+
+    var restaurantFilterList = ArrayList<Restaurant>()
+
+    init{
+        restaurantFilterList = listRestoran
+    }
+
     private lateinit var onItemClickCallback: OnItemClickCallback
     private lateinit var onHapusClickCallback: OnHapusClicked
 
@@ -35,7 +41,7 @@ class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : R
 
     // ini fungsi yang buat ngedit textview dll yang ada didalem row_player.xml
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val restoran = listRestoran[position]
+        val restoran = restaurantFilterList[position]
         holder.namaRestoran.text = restoran.name
         holder.fotoRestoran.setBackgroundResource(restoran.photo)
 //        Glide.with(holder.itemView.context)
@@ -59,7 +65,7 @@ class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : R
 
     // ini ga penting
     override fun getItemCount(): Int {
-        return listRestoran.size
+        return restaurantFilterList.size
     }
 
     // ini kelas buat daftarin komponen yang ada di row_player.xml ke holder
@@ -67,5 +73,33 @@ class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : R
         var namaRestoran: TextView = itemView.findViewById(R.id.namaRestoran)
         var fotoRestoran: ImageView = itemView.findViewById(R.id.fotoRestoran)
         var ratingRestoran: TextView = itemView.findViewById(R.id.ratingRestoran)
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()){
+                    restaurantFilterList = listRestoran
+                } else{
+                    val resultList = ArrayList<Restaurant>()
+                    for (restoran in listRestoran){
+                        if (restoran.name.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))){
+                            resultList.add(restoran)
+                        }
+                    }
+                    restaurantFilterList = resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = restaurantFilterList
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                restaurantFilterList = results?.values as ArrayList<Restaurant>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 }
