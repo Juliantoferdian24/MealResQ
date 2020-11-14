@@ -63,7 +63,7 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
      <td>  </td>
   </tr>
   <tr>
-    <td><img src="screenshots/1605342517823.jpg" width=270 height=480></td>
+    <td><img src="screenshots/main.jpg" width=270 height=480></td>
     <td><img src="screenshots/1605342519350.jpg" width=270 height=480></td>
     <td><img src="screenshots/1605342520494.jpg" width=270 height=480></td>
     <td><img src="screenshots/1605342521726.jpg" width=270 height=480></td>
@@ -72,6 +72,24 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
  </table>
  
  Setelah User login, user akan masuk ke Main Activity, dimana Main Activity sendiri terdiri dari home, favorite, map dan profile fragment seperti yang dapat dilihat dari screenshot diatas.
+ <br>
+<br>
+<br>
+3. Transaction
+
+<table>
+  <tr>
+    <td>  </td>
+     <td>  </td>
+     <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/restoran.jpg" width=270 height=480></td>
+    <td><img src="screenshots/cart.jpg" width=270 height=480></td>
+  </tr>
+ </table>
+ 
+ Apabila user menekan salah satu restaurant yang diinginkan, ia dapat menelfon, melihat instagram dan memesan makanan lewat activity restaurant tersebut. Pembayaran akan dilakukan pada cart
  <br>
 <br>
 <br>
