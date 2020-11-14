@@ -34,7 +34,7 @@ Meal Rescue merupakan sebuah aplikasi diciptakan atas dasar kekhawatiran tentang
 <br>
 <br>
 <br>
-Filosofu
+Filosofi
 Terdapat berbagai Activity yang dapat dilakukan pada aplikasi ini:
 1. Offline Mode
 <table>
