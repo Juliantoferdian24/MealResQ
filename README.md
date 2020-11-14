@@ -1,6 +1,13 @@
 # MealResQ
 HCI's Project
 <br><br>
+Ferdian Julianto 1806200311 (Ketua)
+<br>
+Leonardus Kevin 1806199934
+<br>
+Nathaniel Faustine 1806200066
+<br>
+<br>
 
 Meal Rescue, merupakan aplikasi berbasis android yang 
 memberikan opsi untuk save your food and save 
