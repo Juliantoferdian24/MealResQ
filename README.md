@@ -58,7 +58,7 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
     <td><img src="screenshots/1605342517823.jpg" width=270 height=480></td>
     <td><img src="screenshots/1605342519350.jpg" width=270 height=480></td>
     <td><img src="screenshots/1605342520494.jpg" width=270 height=480></td>
-    <td><img src="screenshots/11605342521726.jpg" width=270 height=480></td>
+    <td><img src="screenshots/1605342521726.jpg" width=270 height=480></td>
     
   </tr>
  </table>
