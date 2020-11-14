@@ -93,6 +93,7 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
  <br>
 <br>
 <br>
+# Cara Clone
  Untuk meng-clone dan menggunakan aplikasi kami, pertama anda dapat mendownload source code kami dengan mengclick tombol hijau pada gambar dibawah. 
  <table>
   <tr>
