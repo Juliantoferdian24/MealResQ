@@ -47,7 +47,6 @@ Aplikasi dimulai dengan splash screen kemudian dilanjut dengan Onboarding Screen
 Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi internet, maka akan muncul No Connection SCreen dengan animasi burung hantu ekstensi (.gif)
 
 <br><br>
-Crowd prediction using prophet time series algorithm
 <table>
   <tr>
     <td>  </td>
@@ -55,12 +54,10 @@ Crowd prediction using prophet time series algorithm
      <td>  </td>
   </tr>
   <tr>
-    <td><img src="screenshots/messageImage_1604307420186.jpg" width=270 height=480></td>
-    <td><img src="screenshots/messageImage_1604307455734.jpg" width=270 height=480></td>
-    <td><img src="screenshots/messageImage_1604307480284.jpg" width=270 height=480></td>
+    <td><img src="screenshots/1605342517823.jpg" width=270 height=480></td>
+    <td><img src="screenshots/1605342519350.jpg" width=270 height=480></td>
+    <td><img src="screenshots/1605342520494.jpg" width=270 height=480></td>
   </tr>
  </table>
-     <td>  </td>
-     <td>  </td>
  Untuk meng-clone dan menggunakan aplikasi kami, pertama anda dapat mendownload source code kami. IDE 
  yang disarankan adalah Android Studio. Setelah source code dalam zip didownload, zip dapat diextract. Melalui Android Studio, anda bisa memilih open project di bagian menu File, dan pilih folder source code yang sudah di extract. Lalu pilih MealResQ Master dengan gambar android dan buka file tersebut. Setelah itu anda perlu melakukan sync gradle agar library yang dibutuhkan dapat di install di perangkat anda. Setelah itu anda perlu perangkat sebagai emulator, bisa menggunakan handphone android yang sudah dalam developer mode, ataupun
