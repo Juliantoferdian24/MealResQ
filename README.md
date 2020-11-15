@@ -54,7 +54,24 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
 <br>
 <br>
 <br>
-2. Main Activity
+2. Authentication
+<table>
+  <tr>
+    <td>  </td>
+     <td>  </td>
+     <td>  </td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/Authentication/1.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Authentication/2.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Authentication/3.jpg" width=270 height=480></td>
+  </tr>
+ </table>
+Terdapat validation dalam form disertai dengan UX copywriting yang baik karena memberi tahu pengguna kesalahan apa yang dilakukan pengguna dan memberi tahu cara pengguna agar bisa keluar dari masalah yang sedang dihadapi. Pengguna yang sudah Sign In pun tidak perlu untuk melakukan Sign in ulang dalam aplikasi, sehingga membuat experience yang dirasakan pengguna lebih menyenangkan.
+<br>
+<br>
+<br>
+3. Main Activity
 
 <table>
   <tr>
@@ -63,19 +80,19 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
      <td>  </td>
   </tr>
   <tr>
-    <td><img src="screenshots/main.jpg" width=270 height=480></td>
-    <td><img src="screenshots/1605342519350.jpg" width=270 height=480></td>
-    <td><img src="screenshots/1605342520494.jpg" width=270 height=480></td>
-    <td><img src="screenshots/1605342521726.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Main Activity/1.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Main Activity//2.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Main Activity//3.jpg" width=270 height=480></td>
+    <td><img src="screenshots/Main Activity//4.jpg" width=270 height=480></td>
     
   </tr>
  </table>
  
- Setelah User login, user akan masuk ke Main Activity, dimana Main Activity sendiri terdiri dari home, favorite, map dan profile fragment seperti yang dapat dilihat dari screenshot diatas.
+ Setelah User login, user akan masuk ke Main Activity, dimana Main Activity sendiri terdiri dari home, favorite, map dan profile fragment seperti yang dapat dilihat dari screenshot diatas. Pengguna dapat mengeksplor restoran-restoran yang ada dan terdapat fitur search bar untuk mempermudah pengguna dalam mencari restoran yang diinginkan. Dalam fitur profile pun terdapat berbagai menu yang dapat diakses seperti Join Community dan terdapat juga fitur Sign out sehingga pengguna tidak perlu menghapus data untuk login menggunakkan akun lain.
  <br>
 <br>
 <br>
-3. Transaction
+4. Transaction
 
 <table>
   <tr>
@@ -89,7 +106,7 @@ Jika device yang digunakan saat menggunakkan aplikasi tidak memiliki koneksi int
   </tr>
  </table>
  
- Apabila user menekan salah satu restaurant yang diinginkan, ia dapat menelfon, melihat instagram dan memesan makanan lewat activity restaurant tersebut. Pembayaran akan dilakukan pada cart
+ Apabila user menekan salah satu restaurant yang diinginkan, ia dapat menelfon, melihat instagram dan memesan makanan lewat activity restaurant tersebut. Pembayaran akan dilakukan pada cart.
  <br>
 <br>
 <br>
