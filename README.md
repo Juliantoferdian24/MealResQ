@@ -1,9 +1,9 @@
 # MealResQ
-HCI's Project
+RPL's Project
 <br><br>
 Ferdian Julianto 1806200311 (Ketua)
 <br>
-Leonardus Kevin 1806199934
+Arvallino 1806200160
 <br>
 Nathaniel Faustine 1806200066
 <br>
