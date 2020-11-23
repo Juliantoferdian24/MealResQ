@@ -35,7 +35,7 @@ public class ForgotPassword extends AppCompatActivity {
         backToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ForgotPassword.this, LoginScreen.class);
+                Intent i = new Intent(ForgotPassword.this, LoginPage.class);
                 startActivity(i);
             }
         });
@@ -43,7 +43,7 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(awesomeValidation.validate()){
-                    Intent i = new Intent(ForgotPassword.this, LoginScreen.class);
+                    Intent i = new Intent(ForgotPassword.this, LoginPage.class);
                     startActivity(i);
                 }
             }

@@ -23,6 +23,7 @@ public class NoConnection extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(NoConnection.this, GettingStarted.class);
                 startActivity(i);
+                finish();
             }
         });
     }

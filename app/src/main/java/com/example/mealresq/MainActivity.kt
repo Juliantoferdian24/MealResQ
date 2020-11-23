@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.auth.FirebaseAuth
+
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
@@ -56,12 +58,14 @@ class MainActivity : AppCompatActivity() {
 
         false
     }
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         setContentView(R.layout.activity_main)
+
+        auth = FirebaseAuth.getInstance()
 
         tb = findViewById(R.id.toolbarr)
         setSupportActionBar(tb)

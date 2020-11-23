@@ -48,7 +48,7 @@ public class GettingStarted extends AppCompatActivity {
                     protected void onPostExecute(String s) {
                         if (s.equals("done")){
                             if (ConnectionManager.checkConnection(getBaseContext())){
-                                Intent i = new Intent(GettingStarted.this, LoginScreen.class);
+                                Intent i = new Intent(GettingStarted.this, LoginPage.class);
                                 startActivity(i);
                             } else{
                                 Intent i = new Intent(GettingStarted.this, NoConnection.class);
@@ -70,6 +70,11 @@ public class GettingStarted extends AppCompatActivity {
 
         gettingStarted.setY(500);
         gettingStarted.animate().translationYBy(-500).setDuration(1000);
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

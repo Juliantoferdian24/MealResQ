@@ -44,6 +44,7 @@ public class OnBoardActivity extends TutorialActivity {
         Intent i = new Intent(OnBoardActivity.this, GettingStarted.class);
         startActivity(i);
         overridePendingTransition(R.animator.slide_in_right, R.animator.slide_out_left);
+        finish();
     }
 
     @Override
@@ -57,7 +58,11 @@ public class OnBoardActivity extends TutorialActivity {
         super.onStart();
     }
 
-//    private void loadMainActivity(){
+    @Override
+    public void onBackPressed() {
+
+    }
+    //    private void loadMainActivity(){
 //        Firebase currentUser = mAuth!!.currentUser
 //        if (currentUser != null) {
 //            val intent = Intent(this, MainActivity::class.java)

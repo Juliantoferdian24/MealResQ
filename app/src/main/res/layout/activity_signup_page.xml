@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupScreen"
-    android:background="#373737">
+    tools:context=".SignupPage">
 
     <View
         android:id="@+id/topView"
@@ -162,6 +161,5 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
