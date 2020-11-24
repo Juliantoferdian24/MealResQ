@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.support.v4.alert
@@ -23,7 +26,7 @@ class ProfileFragment: Fragment(){
     private lateinit var tgoToLogOut: TextView
 
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var googleSignInClient: GoogleSignInClient
     override fun onCreateView(
 
         inflater: LayoutInflater,
@@ -41,7 +44,14 @@ class ProfileFragment: Fragment(){
         tgoToCommunity = rootView.findViewById(R.id.joinOurCommunity)
         tgoToAboutUs = rootView.findViewById(R.id.aboutUs)
         tgoToLogOut = rootView.findViewById(R.id.logout)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(activity!!, gso)
         auth = FirebaseAuth.getInstance()
+
         mgoToCommunity.setOnClickListener {
             val intent = Intent(context, CommunityActivity::class.java)
             startActivity(intent)
@@ -64,7 +74,8 @@ class ProfileFragment: Fragment(){
             alert("Are you sure want to logout?"){
                 noButton {  }
                 yesButton {
-                    FirebaseAuth.getInstance().signOut()
+                    auth.signOut()
+                    googleSignInClient.signOut()
                     val intent = Intent(activity, GettingStarted::class.java)
                     startActivity(intent)
                 }
