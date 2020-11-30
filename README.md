@@ -1,7 +1,7 @@
 # MealResQ
 RPL's Project
 <br><br>
-Arvallino 1806200160
+Arvalinno 1806200160
 <br>
 Ferdian Julianto 1806200311 (Ketua)
 <br>
