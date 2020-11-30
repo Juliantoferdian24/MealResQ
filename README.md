@@ -1,9 +1,9 @@
 # MealResQ
 RPL's Project
 <br><br>
-Ferdian Julianto 1806200311 (Ketua)
-<br>
 Arvallino 1806200160
+<br>
+Ferdian Julianto 1806200311 (Ketua)
 <br>
 Nathaniel Faustine 1806200066
 <br>
