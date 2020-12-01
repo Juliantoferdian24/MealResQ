@@ -37,7 +37,7 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
     private lateinit var lastLocation: Location
     private lateinit var locationCallback: LocationCallback
 
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+//    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         rootView = inflater.inflate(R.layout.activity_maps, container, false)
