@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -43,7 +44,8 @@ class ListRestaurantAdapter(private val listRestoran: ArrayList<Restaurant>) : R
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val restoran = restaurantFilterList[position]
         holder.namaRestoran.text = restoran.name
-        holder.fotoRestoran.setBackgroundResource(restoran.photo)
+        Picasso.get().load(restoran.photo).into(holder.fotoRestoran)
+//        holder.fotoRestoran.setBackgroundResource(restoran.photo)
 //        Glide.with(holder.itemView.context)
 //            .load(restoran.photo)
 //            .apply(RequestOptions().override(100, 100))

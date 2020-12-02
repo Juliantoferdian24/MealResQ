@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.alert_dialog.view.*
 
 
@@ -27,6 +28,11 @@ class RestoranActivity: AppCompatActivity() {
     private lateinit var fotoRestoran: ImageView
     private lateinit var phone: ImageView
     private lateinit var instagram: ImageView
+
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var myRef: DatabaseReference = database.reference
+    private lateinit var listRestoranAdapter: MenuRestaurantAdapter
+
     companion object {
         const val STRINGNYA = ""
     }
@@ -91,7 +97,7 @@ class RestoranActivity: AppCompatActivity() {
 
     private fun showRecyclerList() {
         rvMenu.layoutManager = LinearLayoutManager(this)
-        val listRestoranAdapter = MenuRestaurantAdapter(list)
+        listRestoranAdapter = MenuRestaurantAdapter(list)
         rvMenu.adapter = listRestoranAdapter
         rvMenu.adapter = listRestoranAdapter
 
@@ -109,27 +115,27 @@ class RestoranActivity: AppCompatActivity() {
 
         when(extranya){
             "Roti Bakar Bang Ali" -> {
-                list.addAll(MenuDataRoti.listData)
+                addFromFirebase(list, "Roti Bakar Bang Ali")
                 collapsingToolbar.title = "Roti Bakar Bang Ali"
                 fotoRestoran.setImageResource(R.drawable.martabak)
             }
             "Burger Bang Deni" -> {
-                list.addAll(MenuDataBerger.listData)
+                addFromFirebase(list, "Burger Bang Deni")
                 collapsingToolbar.title = "Burger Bang Deni"
                 fotoRestoran.setImageResource(R.drawable.bergerhome)
             }
             "Rumah Makan Padang Setia" -> {
-                list.addAll(MenuDataPadang.listData)
+                addFromFirebase(list, "Rumah Makan Padang Setia Bener")
                 collapsingToolbar.title = "Rumah Makan Padang Setia"
                 fotoRestoran.setImageResource(R.drawable.padanghome)
             }
             "Sate Padang Pak Tomy" -> {
-                list.addAll(MenuDataSate.listData)
+                addFromFirebase(list, "Rumah Makan Padang Setia")
                 collapsingToolbar.title = "Sate Padang Pak Tomy"
                 fotoRestoran.setImageResource(R.drawable.satehome)
             }
             "Nasi Goreng Pemuda" -> {
-                list.addAll(MenuDataNasgor.listData)
+                addFromFirebase(list, "Nasi Goreng Pemuda")
                 collapsingToolbar.title = "Nasi Goreng Pemuda"
                 fotoRestoran.setImageResource(R.drawable.nasgorhome)
             }
@@ -155,5 +161,29 @@ class RestoranActivity: AppCompatActivity() {
         mDialogView.cancel.setOnClickListener {
             mAlertDialog.dismiss()
         }
+    }
+
+    private fun addFromFirebase(list: ArrayList<Menu>, namaRestoran: String){
+        myRef.child("restoran").child(namaRestoran).child("menu")
+            .addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {}
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    list.clear()
+
+                    for (key in snapshot.children){
+                        val menu = Menu()
+
+                        menu.name = key.child("namamenu").value.toString()
+                        menu.description = key.child("deskripsi").value.toString()
+                        menu.price = key.child("harga").value.toString()
+                        menu.photo = key.child("fotomenu").value.toString()
+
+                        list.add(menu)
+                    }
+                    listRestoranAdapter.notifyDataSetChanged()
+                }
+
+            })
     }
 }

@@ -5,6 +5,6 @@ import java.io.Serializable
 
 class Restaurant: Serializable {
     var name: String = ""
-    var photo: Int = 0
+    var photo: String = ""
     var rating: String = ""
 }

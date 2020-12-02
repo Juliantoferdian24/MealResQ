@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class MenuRestaurantAdapter(private val listMenu: ArrayList<Menu>) : RecyclerView.Adapter<MenuRestaurantAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -32,7 +33,8 @@ class MenuRestaurantAdapter(private val listMenu: ArrayList<Menu>) : RecyclerVie
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val menu = listMenu[position]
         holder.namaMenu.text = menu.name
-        holder.fotoMenu.setBackgroundResource(menu.photo)
+        Picasso.get().load(menu.photo).into(holder.fotoMenu)
+//        holder.fotoMenu.setBackgroundResource(menu.photo)
         holder.deskripsiMenu.text = menu.description
         holder.hargaMenu.text = menu.price
         holder.itemView.setOnClickListener {

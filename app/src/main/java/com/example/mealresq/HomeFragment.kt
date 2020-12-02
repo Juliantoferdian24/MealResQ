@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 
 class HomeFragment: Fragment() {
 
@@ -20,6 +21,10 @@ class HomeFragment: Fragment() {
     private var list: ArrayList<Restaurant> = arrayListOf()
     private lateinit var svRestaurant: androidx.appcompat.widget.SearchView
 
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var myRef: DatabaseReference = database.reference
+    private lateinit var adapter: ListRestaurantAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         rootView = inflater.inflate(R.layout.home_fragment, container, false)
         setHasOptionsMenu(true)
@@ -29,22 +34,21 @@ class HomeFragment: Fragment() {
         rvRestoran.setHasFixedSize(true)
         rvRestoranNearMe.setHasFixedSize(true)
 
-        list.addAll(RestoranData.listData)
+//        list.addAll(RestoranData.listData)
         svRestaurant = rootView.findViewById(R.id.searchview_restoran)
         showRecyclerList()
-
-
+        addFromFirebase(list)
         return rootView
     }
 
     private fun showRecyclerList() {
         rvRestoran.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvRestoranNearMe.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val listRestoranAdapter = ListRestaurantAdapter(list)
-        rvRestoran.adapter = listRestoranAdapter
-        rvRestoranNearMe.adapter = listRestoranAdapter
+        adapter = ListRestaurantAdapter(list)
+        rvRestoran.adapter = adapter
+        rvRestoranNearMe.adapter = adapter
 
-        listRestoranAdapter.setOnItemClickCallBack(object: ListRestaurantAdapter.OnItemClickCallback {
+        adapter.setOnItemClickCallBack(object: ListRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Restaurant) {
                 val intent = Intent(activity, RestoranActivity::class.java)
                 val str: String = data.name
@@ -60,11 +64,34 @@ class HomeFragment: Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                listRestoranAdapter.filter.filter(newText)
+                adapter.filter.filter(newText)
                 return false
             }
 
         })
+    }
+
+    private fun addFromFirebase(list: ArrayList<Restaurant>){
+        myRef.child("restoran")
+            .addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onCancelled(error: DatabaseError) {}
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    list.clear()
+
+                    for (key in snapshot.children){
+                        val restoran = Restaurant()
+
+                        restoran.name = key.child("namarestoran").value.toString()
+                        restoran.rating = key.child("rating").value.toString()
+                        restoran.photo = key.child("fotorestoran").value.toString()
+
+                        list.add(restoran)
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+
+            })
     }
 
     companion object{
