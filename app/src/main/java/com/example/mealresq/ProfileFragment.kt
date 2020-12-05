@@ -37,8 +37,6 @@ class ProfileFragment: Fragment(){
         rootView = inflater.inflate(R.layout.profile_fragment, container, false)
         setHasOptionsMenu(true)
 
-
-
         mgoToCommunity = rootView.findViewById(R.id.goToCommunity)
         mgoToAboutUs = rootView.findViewById(R.id.goToAboutUs)
         mgoToLogOut = rootView.findViewById(R.id.goToLogout)

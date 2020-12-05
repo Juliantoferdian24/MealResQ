@@ -49,7 +49,7 @@
                 android:id="@+id/aboutUsDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="1000dp"
-                android:src="@drawable/aboutus_description1"
+                android:src="@drawable/about_us_description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
