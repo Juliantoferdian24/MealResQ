@@ -9,64 +9,51 @@
     android:background="#FEFAE0"
     app:layout_constraintCircleRadius="100sp">
 
-
     <View
         android:id="@+id/topViewProfile"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:background="@color/colorPrimary"
+        android:layout_height="120dp"
+        android:background="#F8B100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:text="About Us"
-        android:textColor="#000000"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/backToProfile"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/backToProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/topViewProfile"
+        android:background="#F8B100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/keyboard_arrow_left_24px_1" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Indonesia merupakan peringkat ke-2 negara
-        \npenghasil food waste terbesar di dunia dengan
-        \nrata-rata 300 kilogram makanan dibuang per
-        \norang setiap tahunnya. Meal Rescue,
-        \nmerupakan opsi untuk save your food and save
-        \nyour budget. Kami menyediakan opsi untuk
-        \npara masyarakat yang ingin mengurangi
-        \nfood waste dengan menjual makanan berlebih
-        \ndi marketplace kami serta orang lain dapat
-        \nmembantu Bumi dengan membeli makanan
-        \nberlebih tersebut."
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topViewProfile"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintTop_toBottomOf="@+id/backToProfile"
+        app:layout_constraintVertical_bias="0.0">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/aboutUsDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="1000dp"
+                android:src="@drawable/aboutus_description1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

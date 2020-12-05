@@ -21,6 +21,7 @@ class ProfileFragment: Fragment(){
     private lateinit var rootView: View
     private lateinit var mgoToCommunity: ImageButton
     private lateinit var mgoToAboutUs: ImageButton
+    private lateinit var mgoToLogOut : ImageButton
     private lateinit var tgoToCommunity: TextView
     private lateinit var tgoToAboutUs: TextView
     private lateinit var tgoToLogOut: TextView
@@ -39,7 +40,8 @@ class ProfileFragment: Fragment(){
 
 
         mgoToCommunity = rootView.findViewById(R.id.goToCommunity)
-        mgoToAboutUs = rootView.findViewById(R.id.goToLogout)
+        mgoToAboutUs = rootView.findViewById(R.id.goToAboutUs)
+        mgoToLogOut = rootView.findViewById(R.id.goToLogout)
 
         tgoToCommunity = rootView.findViewById(R.id.joinOurCommunity)
         tgoToAboutUs = rootView.findViewById(R.id.aboutUs)
@@ -59,6 +61,17 @@ class ProfileFragment: Fragment(){
         mgoToAboutUs.setOnClickListener {
             val intent = Intent(context, AboutActivity::class.java)
             startActivity(intent)
+        }
+        mgoToLogOut.setOnClickListener {
+            alert("Are you sure want to logout?"){
+                noButton {  }
+                yesButton {
+                    auth.signOut()
+                    googleSignInClient.signOut()
+                    val intent = Intent(activity, GettingStarted::class.java)
+                    startActivity(intent)
+                }
+            }.show()
         }
 
         tgoToCommunity.setOnClickListener {
