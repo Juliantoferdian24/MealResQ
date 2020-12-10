@@ -6,18 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.profile_fragment.*
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.yesButton
 
 
 class ProfileFragment: Fragment(){
+    private lateinit var imagetest: ImageView
+    private lateinit var imageref: StorageReference
     private lateinit var rootView: View
     private lateinit var mgoToCommunity: ImageButton
     private lateinit var mgoToAboutUs: ImageButton
@@ -25,6 +32,7 @@ class ProfileFragment: Fragment(){
     private lateinit var tgoToCommunity: TextView
     private lateinit var tgoToAboutUs: TextView
     private lateinit var tgoToLogOut: TextView
+    private lateinit var tgotoEditProfile: TextView
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -44,7 +52,18 @@ class ProfileFragment: Fragment(){
         tgoToCommunity = rootView.findViewById(R.id.joinOurCommunity)
         tgoToAboutUs = rootView.findViewById(R.id.aboutUs)
         tgoToLogOut = rootView.findViewById(R.id.logout)
+        tgotoEditProfile = rootView.findViewById(R.id.editProfile)
 
+        imageref = FirebaseStorage.getInstance().reference.child("profileImage/${FirebaseAuth.getInstance().currentUser!!.uid}")
+        imageref.downloadUrl.addOnSuccessListener {Uri->
+            val imageURL = Uri.toString()
+            imagetest = rootView.findViewById(R.id.fotoProfil)
+
+            Glide.with(this)
+                .load(imageURL)
+                .circleCrop()
+                .into(imagetest)
+        }
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -91,10 +110,15 @@ class ProfileFragment: Fragment(){
                     startActivity(intent)
                 }
             }.show()
+        }
 
+        tgotoEditProfile.setOnClickListener{
+            val intent = Intent(activity, EditProfileData::class.java)
+            startActivity(intent)
         }
         return rootView
     }
+
     companion object {
         //        var TAG = ProfileFragment::class.java.simpleName
         private const val ARG_POSITION: String = "position"
