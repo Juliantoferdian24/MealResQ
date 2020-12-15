@@ -104,7 +104,7 @@ class RestoranActivity: AppCompatActivity() {
         listRestoranAdapter.setOnItemClickCallBack(object :
             MenuRestaurantAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Menu) {
-                showDialogBox()
+                showDialogBox(data)
             }
         })
     }
@@ -148,7 +148,7 @@ class RestoranActivity: AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun showDialogBox(){
+    private fun showDialogBox(data: Menu){
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.alert_dialog, null)
         val mBuilder = AlertDialog.Builder(this)
             .setView(mDialogView)
@@ -157,6 +157,9 @@ class RestoranActivity: AppCompatActivity() {
         mDialogView.okay.setOnClickListener {
             mAlertDialog.dismiss()
             // TODO: 05/11/20 kalo click okay
+            MenuDataCart.menuNames.add(data.name)
+            MenuDataCart.qtyMenu.add("1x")
+            MenuDataCart.menuPrice.add(data.price)
         }
         mDialogView.cancel.setOnClickListener {
             mAlertDialog.dismiss()

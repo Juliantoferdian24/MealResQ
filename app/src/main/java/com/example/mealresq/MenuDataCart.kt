@@ -1,20 +1,11 @@
 package com.example.mealresq
 
 object MenuDataCart{
-    private val menuNames = arrayOf("Burger spesial",
-        "Nasi goreng ayam telur dadar",
-        "Nasi goreng sapi telur mata sapi",
-        "Sate ayam bumbu kecap")
+    val menuNames: MutableList<String> = arrayListOf()
 
-    private val qtyMenu = arrayOf("2x",
-        "1x",
-        "1x",
-        "1x")
+    val qtyMenu: MutableList<String> = arrayListOf()
 
-    private val menuPrice = arrayOf("Rp 40.000",
-        "Rp 23.000",
-        "Rp 24.000",
-        "Rp 25.000")
+    val menuPrice: MutableList<String> = arrayListOf()
 
     val listData: ArrayList<MenuCheckout>
         get() {

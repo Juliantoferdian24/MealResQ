@@ -35,7 +35,7 @@ class CheckoutAdapter(private val listMenu: ArrayList<MenuCheckout>) : RecyclerV
         holder.qtyMenuCheckout.text = menu.qty
         holder.hargaCheckout.text = menu.price
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(listMenu[holder.adapterPosition])
+            onItemClickCallback.onItemClicked(listMenu[holder.adapterPosition], holder.layoutPosition)
         }
     }
 
@@ -45,7 +45,7 @@ class CheckoutAdapter(private val listMenu: ArrayList<MenuCheckout>) : RecyclerV
 
     // ini biar row nya bisa di klik
     interface OnItemClickCallback {
-        fun onItemClicked(data: MenuCheckout)
+        fun onItemClicked(data: MenuCheckout, pos: Int)
     }
 
     // ini ga penting
