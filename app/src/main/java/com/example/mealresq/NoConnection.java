@@ -16,7 +16,7 @@ public class NoConnection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_connection);
 
-        tryagain_button =  (Button) findViewById(R.id.tryagain_button);
+        tryagain_button = findViewById(R.id.tryagain_button);
 
         tryagain_button.setOnClickListener(new View.OnClickListener() {
             @Override

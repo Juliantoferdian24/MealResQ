@@ -24,13 +24,13 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        input_email = (EditText) findViewById(R.id.inputEmail);
-        btnReset = (Button) findViewById(R.id.btnReset);
-        backToSignIn = (TextView) findViewById(R.id.backToSignIn);
+        input_email = findViewById(R.id.inputAddress);
+        btnReset = findViewById(R.id.btnReset);
+        backToSignIn = findViewById(R.id.backToSignIn);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         //Input Validation
-        awesomeValidation.addValidation(this, R.id.inputEmail,
+        awesomeValidation.addValidation(this, R.id.inputAddress,
                 Patterns.EMAIL_ADDRESS, R.string.invalid_email);
         backToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

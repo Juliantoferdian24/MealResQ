@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.basgeekball.awesomevalidation.AwesomeValidation
 import com.basgeekball.awesomevalidation.ValidationStyle
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup_page.*
 
 
@@ -17,6 +19,7 @@ class SignupPage : AppCompatActivity() {
     private lateinit var btnSignup: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var awesomeValidation: AwesomeValidation
+    lateinit var ref : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
@@ -33,12 +36,12 @@ class SignupPage : AppCompatActivity() {
             Patterns.EMAIL_ADDRESS, R.string.invalid_email
         )
         awesomeValidation.addValidation(
-            this, R.id.inputPassword,
+            this, R.id.inputInterest,
             ".{8,}", R.string.invalid_password
         )
         awesomeValidation.addValidation(
             this, R.id.confirmPassword,
-            R.id.inputPassword, R.string.different_password
+            R.id.inputInterest, R.string.different_password
         )
         btnSignup = findViewById(R.id.btnSignup)
         btnSignup.setOnClickListener {
@@ -80,6 +83,16 @@ class SignupPage : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
                 if(it.isSuccessful){
+                    ref = FirebaseDatabase.getInstance().getReference("Users")
+                    val nama = inputName.text.toString()
+                    val address = "Please fill in your data"
+                    val interest = "Please fill in your data"
+                    val user = Users(nama,address,interest)
+                    val userId = FirebaseAuth.getInstance().currentUser!!.uid
+
+                    ref.child(userId).setValue(user).addOnCompleteListener {
+                        Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
+                    }
                     val intent = Intent(applicationContext, LoginPage::class.java)
                     startActivity(intent)
                 }else{

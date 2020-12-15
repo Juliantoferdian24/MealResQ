@@ -2,7 +2,6 @@ package com.example.mealresq
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
 import android.util.Patterns
 import android.view.View
@@ -43,11 +42,11 @@ class LoginPage : AppCompatActivity() {
         awesomeValidation = AwesomeValidation(ValidationStyle.BASIC)
 
         awesomeValidation.addValidation(
-            this, R.id.inputEmail,
+            this, R.id.inputAddress,
             Patterns.EMAIL_ADDRESS, R.string.invalid_email
         )
         awesomeValidation.addValidation(
-            this, R.id.inputPassword,
+            this, R.id.inputInterest,
             ".{8,}", R.string.wrong_password
         )
 

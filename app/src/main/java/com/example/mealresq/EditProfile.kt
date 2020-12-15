@@ -1,34 +1,22 @@
 package com.example.mealresq
 
-import android.Manifest
-import android.R.attr
 import android.app.Activity
-import android.app.Instrumentation
 import android.app.ProgressDialog
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_edit_profile_data.*
 import kotlinx.android.synthetic.main.activity_getting_started.*
 import kotlinx.android.synthetic.main.fav_fragment.*
-import java.io.ByteArrayOutputStream
 import java.io.IOException
-import java.util.*import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.module.AppGlideModule
 
 class EditProfile : AppCompatActivity(), View.OnClickListener {
 

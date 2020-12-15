@@ -8,17 +8,20 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.profile_fragment.*
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.support.v4.alert
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.yesButton
 
 
@@ -33,6 +36,9 @@ class ProfileFragment: Fragment(){
     private lateinit var tgoToAboutUs: TextView
     private lateinit var tgoToLogOut: TextView
     private lateinit var tgotoEditProfile: TextView
+
+    private lateinit var name: TextView
+    private lateinit var address: TextView
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -54,8 +60,11 @@ class ProfileFragment: Fragment(){
         tgoToLogOut = rootView.findViewById(R.id.logout)
         tgotoEditProfile = rootView.findViewById(R.id.editProfile)
 
+        name = rootView.findViewById(R.id.tv_name)
+        address = rootView.findViewById(R.id.tv_address)
+
         imageref = FirebaseStorage.getInstance().reference.child("profileImage/${FirebaseAuth.getInstance().currentUser!!.uid}")
-        imageref.downloadUrl.addOnSuccessListener {Uri->
+        imageref.downloadUrl.addOnSuccessListener { Uri->
             val imageURL = Uri.toString()
             imagetest = rootView.findViewById(R.id.fotoProfil)
 
@@ -115,6 +124,30 @@ class ProfileFragment: Fragment(){
         tgotoEditProfile.setOnClickListener{
             val intent = Intent(activity, EditProfileData::class.java)
             startActivity(intent)
+        }
+        val acct = GoogleSignIn.getLastSignedInAccount(activity)
+        if (acct != null){
+            name.text = acct.displayName
+            address.text = acct.email
+        } else{
+            // Write a message to the database
+            // Write a message to the database
+            val database = FirebaseDatabase.getInstance()
+            val myRef = database.reference
+            // Read from the database
+            myRef.child("Users")
+                .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    name.text = dataSnapshot.child("${FirebaseAuth.getInstance().currentUser!!.uid}/nama").value.toString()
+                    address.text = dataSnapshot.child("${FirebaseAuth.getInstance().currentUser!!.uid}/address").value.toString()
+                }
+
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
         return rootView
     }

@@ -42,7 +42,7 @@
         android:drawableStart="@drawable/ic_person_orange"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Your Name"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textColorHint="@color/quantum_grey"
@@ -51,44 +51,60 @@
         app:layout_constraintTop_toBottomOf="@+id/changePicture" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/inputAddress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
-        android:drawableStart="@drawable/ic_email"
+        android:drawableStart="@drawable/ic_home"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Email"
-        android:textColorHint="@color/quantum_grey"
+        android:hint="Your Address"
         android:inputType="textEmailAddress"
         android:padding="16dp"
+        android:textColorHint="@color/quantum_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputName"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/inputName" />
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/inputInterest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
-        android:drawableStart="@drawable/ic_lock"
+        android:drawableStart="@drawable/ic_fav"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Password"
-        android:textColorHint="@color/quantum_grey"
+        android:hint="Your Interest"
         android:inputType="textPassword"
         android:padding="16dp"
+        android:textColorHint="@color/quantum_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
 
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/round_bg"
+        android:text="Update Data"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:enabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

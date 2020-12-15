@@ -25,9 +25,9 @@ public class GettingStarted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getting_started);
 
-        gettingStarted = (CircularProgressButton) findViewById(R.id.gettingStarted);
-        logo = (ImageView) findViewById(R.id.logo);
-        slogan = (TextView) findViewById(R.id.slogan);
+        gettingStarted = findViewById(R.id.gettingStarted);
+        logo = findViewById(R.id.logo);
+        slogan = findViewById(R.id.slogan);
 
 
 
