@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:background="@color/background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -28,6 +29,7 @@
                 android:textSize="48sp" />
 
             <ImageView
+                android:id="@+id/gambar_cart"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
@@ -35,7 +37,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="30dp"
                 android:src="@drawable/ic_cart"
-                app:tint="@color/quantum_grey" />
+                app:tint="@color/quantum_grey"/>
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchview_restoran"

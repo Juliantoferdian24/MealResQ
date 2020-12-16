@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -25,6 +26,8 @@ class HomeFragment: Fragment() {
     private var myRef: DatabaseReference = database.reference
     private lateinit var adapter: ListRestaurantAdapter
 
+    private lateinit var iconCart: ImageView
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         rootView = inflater.inflate(R.layout.home_fragment, container, false)
         setHasOptionsMenu(true)
@@ -36,6 +39,15 @@ class HomeFragment: Fragment() {
 
 //        list.addAll(RestoranData.listData)
         svRestaurant = rootView.findViewById(R.id.searchview_restoran)
+        svRestaurant.setQuery("", false)
+
+        iconCart = rootView.findViewById(R.id.gambar_cart)
+        iconCart.setOnClickListener {
+            startActivity(Intent(activity, CartActivity::class.java))
+        }
+
+        rootView.requestFocus()
+
         showRecyclerList()
         addFromFirebase(list)
         return rootView
