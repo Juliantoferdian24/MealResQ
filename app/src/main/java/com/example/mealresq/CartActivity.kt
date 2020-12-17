@@ -40,7 +40,6 @@ class CartActivity: AppCompatActivity() {
             override fun onItemClicked(data: MenuCheckout, pos: Int) {
                 showDialogBox(pos)
             }
-
         })
     }
 

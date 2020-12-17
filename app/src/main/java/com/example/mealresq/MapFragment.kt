@@ -3,6 +3,7 @@
 package com.example.mealresq
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -10,6 +11,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
@@ -26,6 +29,9 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.bottomsheet.view.*
 
 @Suppress("DEPRECATION")
@@ -39,6 +45,13 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
+    private lateinit var markerBurger: Marker
+    private lateinit var markerSate: Marker
+    private lateinit var clickedRestoran: Restaurant
+
+    private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var myRef: DatabaseReference = database.reference
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         rootView = inflater.inflate(R.layout.activity_maps, container, false)
         setHasOptionsMenu(true)
@@ -46,6 +59,8 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
         inisialisasiLokasi()
         inisialisasiBS()
         inisialisasiAutoComplete()
+
+        clickedRestoran = Restaurant()
 
         return rootView
     }
@@ -70,6 +85,7 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
         map.uiSettings.isMapToolbarEnabled = false
         map.uiSettings.isCompassEnabled = false
         map.uiSettings.isMyLocationButtonEnabled = false
+        placeMarker()
         map.setOnMarkerClickListener(this)
 
         setUpMap()
@@ -85,7 +101,26 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
         }
     }
 
-    override fun onMarkerClick(p0: Marker?) = false
+    override fun onMarkerClick(marker: Marker?): Boolean {
+        myRef.child("restoran").child(marker!!.title)
+            .addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onCancelled(error: DatabaseError) {}
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+//                    clickedRestoran = Restaurant()
+                    clickedRestoran.name = snapshot.child("namarestoran").value.toString()
+                    clickedRestoran.photo = snapshot.child("fotorestoran").value.toString()
+                    clickedRestoran.rating = snapshot.child("rating").value.toString()
+
+                    changeBottomsheet(clickedRestoran)
+                }
+            })
+
+
+
+        Toast.makeText(context, "${marker.title} clicked", Toast.LENGTH_SHORT).show()
+        return false
+    }
 
     private fun setUpMap() {
         if (ActivityCompat.checkSelfPermission(rootView.context,
@@ -169,5 +204,37 @@ class MapFragment: Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListen
                 Log.i("TEMPAT", "An error occurred: $status")
             }
         })
+    }
+
+    private fun placeMarker(){
+        val first = LatLng(-6.261581, 106.673136)
+        val second = LatLng(-6.260740, 106.671381)
+
+        markerBurger = map.addMarker(
+            MarkerOptions()
+                .position(first)
+                .title("Burger Bang Deni")
+        )
+
+        markerSate = map.addMarker(
+            MarkerOptions()
+                .position(second)
+                .title("Roti Bakar Bang Ali")
+        )
+    }
+
+    private fun changeBottomsheet(restoran: Restaurant){
+        val imagenya = rootView.findViewById<CircleImageView>(R.id.fotorestobs)
+        val namanya = rootView.findViewById<TextView>(R.id.namabs)
+
+        Picasso.get().load(restoran.photo).into(imagenya)
+        namanya.text = restoran.name
+
+        imagenya.setOnClickListener {
+            val intent = Intent(activity, RestoranActivity::class.java)
+            val str: String = restoran.name
+            intent.putExtra(RestoranActivity.STRINGNYA, str)
+            startActivity(intent)
+        }
     }
 }
