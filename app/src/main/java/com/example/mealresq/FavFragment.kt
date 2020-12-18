@@ -20,11 +20,9 @@ class FavFragment: Fragment() {
         rootView = inflater.inflate(R.layout.fav_fragment, container, false)
         setHasOptionsMenu(true)
 
-
         hargaReal = rootView.findViewById(R.id.hargaReal)
         hargaReal.paintFlags = hargaReal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         hargaReal.text = "Rp. 20.000,00"
-
 
         return rootView
     }
