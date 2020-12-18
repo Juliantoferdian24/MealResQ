@@ -45,7 +45,6 @@ class SignupPage : AppCompatActivity() {
         )
         btnSignup = findViewById(R.id.btnSignup)
         btnSignup.setOnClickListener {
-            val name = inputName.text.toString().trim()
             val email = inputEmail.text.toString().trim()
             val password = inputPassword.text.toString().trim()
             val repassword = confirmPassword.text.toString().trim()

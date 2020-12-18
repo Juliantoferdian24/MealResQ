@@ -87,9 +87,7 @@ class RestoranActivity: AppCompatActivity() {
         instagram.setOnClickListener(View.OnClickListener {
             val uri = Uri.parse("http://instagram.com/_u/${akunInstagram}")
             val likeIng = Intent(Intent.ACTION_VIEW, uri)
-
             likeIng.setPackage("com.instagram.android")
-
             try {
                 startActivity(likeIng)
             } catch (e: ActivityNotFoundException) {
@@ -101,7 +99,6 @@ class RestoranActivity: AppCompatActivity() {
                 )
             }
         })
-
         super.onCreate(savedInstanceState)
     }
 
@@ -119,6 +116,7 @@ class RestoranActivity: AppCompatActivity() {
                 }
             })
     }
+
     private fun showRecyclerList() {
         rvMenu.layoutManager = LinearLayoutManager(this)
         listRestoranAdapter = MenuRestaurantAdapter(list)

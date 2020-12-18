@@ -63,16 +63,17 @@ class ProfileFragment: Fragment(){
         name = rootView.findViewById(R.id.tv_name)
         address = rootView.findViewById(R.id.tv_address)
 
-        imageref = FirebaseStorage.getInstance().reference.child("profileImage/${FirebaseAuth.getInstance().currentUser!!.uid}")
+        imageref = FirebaseStorage.getInstance().reference
+            .child("profileImage/${FirebaseAuth.getInstance().currentUser!!.uid}")
         imageref.downloadUrl.addOnSuccessListener { Uri->
             val imageURL = Uri.toString()
             imagetest = rootView.findViewById(R.id.fotoProfil)
-
             Glide.with(this)
                 .load(imageURL)
                 .circleCrop()
                 .into(imagetest)
         }
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()

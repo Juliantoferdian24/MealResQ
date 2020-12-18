@@ -61,17 +61,13 @@ class EditProfile : AppCompatActivity(), View.OnClickListener {
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
-
-            val imageRef = storageReference!!.child("profileImage/${FirebaseAuth.getInstance().currentUser?.uid}")
+            val imageRef = storageReference!!.child("profileImage/${FirebaseAuth
+                .getInstance().currentUser?.uid}")
             imageRef.putFile(filePath!!).addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "File Uploaded", Toast.LENGTH_SHORT).show()
-
                 val intent = Intent(this, EditProfileData::class.java)
                 startActivity(intent)
-
-
-
             }.addOnFailureListener{
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "Failed", Toast.LENGTH_SHORT).show()

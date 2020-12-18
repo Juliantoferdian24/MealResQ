@@ -87,22 +87,17 @@ class HomeFragment: Fragment() {
         myRef.child("restoran")
             .addListenerForSingleValueEvent(object: ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {}
-
                 override fun onDataChange(snapshot: DataSnapshot) {
                     list.clear()
-
                     for (key in snapshot.children){
                         val restoran = Restaurant()
-
                         restoran.name = key.child("namarestoran").value.toString()
                         restoran.rating = key.child("rating").value.toString()
                         restoran.photo = key.child("fotorestoran").value.toString()
-
                         list.add(restoran)
                     }
                     adapter.notifyDataSetChanged()
                 }
-
             })
     }
 

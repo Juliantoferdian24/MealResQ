@@ -7,7 +7,8 @@ import android.net.NetworkInfo;
 public class ConnectionManager {
     public static boolean checkConnection(Context context){
 
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null){
             NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
 

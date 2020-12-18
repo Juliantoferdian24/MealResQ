@@ -53,15 +53,12 @@ class EditProfileData : AppCompatActivity() {
             val name = inputName.text.toString()
             val address = inputAddress.text.toString()
             val interest = inputInterest.text.toString()
-
             ref = FirebaseDatabase.getInstance().getReference("Users")
             val user = Users(name,address,interest)
             val userId = FirebaseAuth.getInstance().currentUser!!.uid
-
             ref.child(userId).setValue(user).addOnCompleteListener {
                 Toast.makeText(this, "Successs", Toast.LENGTH_SHORT).show()
             }
-
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
