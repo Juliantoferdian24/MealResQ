@@ -34,8 +34,16 @@ class RestoranActivity: AppCompatActivity() {
     private lateinit var fotoRestoran: ImageView
     private lateinit var phone: ImageView
     private lateinit var instagram: ImageView
+    private lateinit var favIcon: ImageView
+
+    private var isFavorite: Boolean = false
+    private lateinit var myResto: Restaurant
+    private lateinit var auth: FirebaseAuth
+    private var extranya = ""
+
     private lateinit var telepon: String
     private lateinit var akunInstagram: String
+
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private var myRef: DatabaseReference = database.reference
@@ -55,10 +63,14 @@ class RestoranActivity: AppCompatActivity() {
         fotoRestoran = findViewById(R.id.gambar_restoran)
         phone = findViewById(R.id.phone)
         instagram = findViewById(R.id.instagram)
+        favIcon = findViewById(R.id.favorite)
+        auth = FirebaseAuth.getInstance()
 
         ngambilDataFirebase()
         initList()
         showRecyclerList()
+        checkFirebase(extranya)
+
         phone.setOnClickListener(View.OnClickListener {
 
             if (Build.VERSION.SDK_INT > 22) {
@@ -133,7 +145,7 @@ class RestoranActivity: AppCompatActivity() {
 
     private fun initList(){
 
-        val extranya = intent.getStringExtra(STRINGNYA)
+        extranya = intent.getStringExtra(STRINGNYA)
 
         when(extranya){
             "Roti Bakar Bang Ali" -> {
@@ -208,7 +220,47 @@ class RestoranActivity: AppCompatActivity() {
                     }
                     listRestoranAdapter.notifyDataSetChanged()
                 }
-
             })
+    }
+
+    private fun pushToFavorite(namaRestoran: String){
+        myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
+            .setValue(namaRestoran)
+    }
+
+    private fun removeFavorite(namaRestoran: String){
+        myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
+            .removeValue()
+    }
+
+    private fun checkFirebase(namaRestoran: String){
+        myRef.child("Users").child(auth.currentUser!!.uid).child("favorites")
+            .addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {}
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    try {
+                        val trigger = snapshot.child(namaRestoran).value.toString()
+                        isFavorite = true
+                        favIcon.setBackgroundResource(R.drawable.ic_fav_fill)
+                    }catch (e: Exception){
+                        isFavorite = false
+                        favIcon.setBackgroundResource(R.drawable.ic_fav)
+                    }
+                }
+            })
+    }
+
+    fun favoriteClick(view: View) {
+        if (isFavorite){
+            favIcon.setBackgroundResource(R.drawable.ic_fav)
+            removeFavorite(extranya)
+            isFavorite = false
+        }else{
+            favIcon.setBackgroundResource(R.drawable.ic_fav_fill)
+            pushToFavorite(extranya)
+            isFavorite = true
+        }
+
     }
 }

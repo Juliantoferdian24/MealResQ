@@ -7,4 +7,5 @@ class Restaurant: Serializable {
     var name: String = ""
     var photo: String = ""
     var rating: String = ""
+    var favorited: Boolean = false
 }

@@ -114,7 +114,7 @@
                 android:layout_marginEnd="12dp"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="12dp"
-                app:tint="@color/black" />
+                android:onClick="favoriteClick"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/kotak"
