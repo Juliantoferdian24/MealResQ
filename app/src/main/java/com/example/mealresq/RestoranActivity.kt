@@ -7,9 +7,11 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -19,6 +21,9 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.alert_dialog.view.*
+import kotlinx.coroutines.Delay
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class RestoranActivity: AppCompatActivity() {
@@ -35,6 +40,10 @@ class RestoranActivity: AppCompatActivity() {
     private lateinit var myResto: Restaurant
     private lateinit var auth: FirebaseAuth
     private var extranya = ""
+
+    private lateinit var telepon: String
+    private lateinit var akunInstagram: String
+
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private var myRef: DatabaseReference = database.reference
@@ -57,11 +66,13 @@ class RestoranActivity: AppCompatActivity() {
         favIcon = findViewById(R.id.favorite)
         auth = FirebaseAuth.getInstance()
 
+        ngambilDataFirebase()
         initList()
         showRecyclerList()
         checkFirebase(extranya)
 
         phone.setOnClickListener(View.OnClickListener {
+
             if (Build.VERSION.SDK_INT > 22) {
                 if (ActivityCompat.checkSelfPermission(
                         this,
@@ -77,16 +88,16 @@ class RestoranActivity: AppCompatActivity() {
                     return@OnClickListener
                 }
                 val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:" + "083890769297")
+                callIntent.data = Uri.parse("tel:" + telepon)
                 startActivity(callIntent)
             } else {
                 val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:" + "083890769297")
+                callIntent.data = Uri.parse("tel:" + telepon)
                 startActivity(callIntent)
             }
         })
         instagram.setOnClickListener(View.OnClickListener {
-            val uri = Uri.parse("http://instagram.com/_u/burgerking.id")
+            val uri = Uri.parse("http://instagram.com/_u/${akunInstagram}")
             val likeIng = Intent(Intent.ACTION_VIEW, uri)
 
             likeIng.setPackage("com.instagram.android")
@@ -97,7 +108,7 @@ class RestoranActivity: AppCompatActivity() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("http://instagram.com/burgerking.id")
+                        Uri.parse("http://instagram.com/${akunInstagram}")
                     )
                 )
             }
@@ -106,6 +117,20 @@ class RestoranActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
     }
 
+    private fun ngambilDataFirebase(){
+        val extranya = intent.getStringExtra(STRINGNYA)
+        myRef.child("restoran").child(extranya)
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    telepon = snapshot.child("phone").value.toString()
+                    akunInstagram = snapshot.child("akunInstagram").value.toString()
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Toast.makeText(applicationContext, "failed", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
     private fun showRecyclerList() {
         rvMenu.layoutManager = LinearLayoutManager(this)
         listRestoranAdapter = MenuRestaurantAdapter(list)
@@ -184,7 +209,7 @@ class RestoranActivity: AppCompatActivity() {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     list.clear()
-
+                    telepon = snapshot.child("phone").value.toString()
                     for (key in snapshot.children){
                         val menu = Menu()
 

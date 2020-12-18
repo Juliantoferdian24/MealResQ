@@ -141,8 +141,6 @@ class ProfileFragment: Fragment(){
                     name.text = dataSnapshot.child("${FirebaseAuth.getInstance().currentUser!!.uid}/nama").value.toString()
                     address.text = dataSnapshot.child("${FirebaseAuth.getInstance().currentUser!!.uid}/address").value.toString()
                 }
-
-
                 override fun onCancelled(error: DatabaseError) {
                     // Failed to read value
                     Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show()
