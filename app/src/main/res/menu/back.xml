@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/edit_picture"
         android:icon="@drawable/ic_back"
         app:showAsAction="ifRoom"
         android:title="back"

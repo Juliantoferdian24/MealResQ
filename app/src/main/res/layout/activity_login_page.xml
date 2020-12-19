@@ -36,7 +36,6 @@
         android:contentDescription="TOP ICON" />
 
     <TextView
-        android:id="@+id/topText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -160,7 +159,6 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/gotoRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
