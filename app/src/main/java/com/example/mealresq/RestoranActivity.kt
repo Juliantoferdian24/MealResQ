@@ -44,6 +44,7 @@ class RestoranActivity: AppCompatActivity() {
     private lateinit var telepon: String
     private lateinit var akunInstagram: String
 
+    private var fotoAndalan = ""
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private var myRef: DatabaseReference = database.reference
@@ -216,6 +217,8 @@ class RestoranActivity: AppCompatActivity() {
                         menu.price = key.child("harga").value.toString()
                         menu.photo = key.child("fotomenu").value.toString()
 
+                        fotoAndalan = key.child("fotomenu").value.toString()
+
                         list.add(menu)
                     }
                     listRestoranAdapter.notifyDataSetChanged()
@@ -224,13 +227,15 @@ class RestoranActivity: AppCompatActivity() {
     }
 
     private fun pushToFavorite(namaRestoran: String){
-        myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
-            .setValue(namaRestoran)
+        val alamat = myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
+        alamat.child("namarestoran").setValue(namaRestoran)
+        alamat.child("fotonya").setValue(fotoAndalan)
     }
 
     private fun removeFavorite(namaRestoran: String){
-        myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
-            .removeValue()
+        val alamat = myRef.child("Users").child(auth.currentUser!!.uid).child("favorites").child(namaRestoran)
+        alamat.child("namarestoran").removeValue()
+        alamat.child("fotonya").removeValue()
     }
 
     private fun checkFirebase(namaRestoran: String){
@@ -239,14 +244,26 @@ class RestoranActivity: AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    try {
-                        val trigger = snapshot.child(namaRestoran).value.toString()
-                        isFavorite = true
-                        favIcon.setBackgroundResource(R.drawable.ic_fav_fill)
-                    }catch (e: Exception){
-                        isFavorite = false
-                        favIcon.setBackgroundResource(R.drawable.ic_fav)
+
+                    for (key in snapshot.children){
+                        val namaRestoranFavorit = key.child("namarestoran").value.toString()
+                        if(namaRestoran == namaRestoranFavorit){
+                            isFavorite = true
+                            favIcon.setBackgroundResource(R.drawable.ic_fav_fill)
+                            break
+                        } else{
+                            isFavorite = false
+                            favIcon.setBackgroundResource(R.drawable.ic_fav)
+                        }
                     }
+//                    try {
+////                        val trigger = snapshot.child(namaRestoran).value.toString()
+////                        isFavorite = true
+////                        favIcon.setBackgroundResource(R.drawable.ic_fav_fill)
+////                    }catch (e: Exception){
+////                        isFavorite = false
+////                        favIcon.setBackgroundResource(R.drawable.ic_fav)
+////                    }
                 }
             })
     }

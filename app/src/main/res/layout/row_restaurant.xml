@@ -82,7 +82,6 @@
         app:layout_constraintTop_toBottomOf="@id/namaRestoran"
         app:tint="@color/quantum_yellow" />
     <ImageView
-        android:id="@+id/star5"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:src="@drawable/ic_star_border"

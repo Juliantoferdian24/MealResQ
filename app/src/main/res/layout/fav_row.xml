@@ -26,11 +26,11 @@
 
         <TextView
             android:id="@+id/textView8Fav"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Beef Burger"
+            android:text="Rumah Makan Padang Setia"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
 
         <TextView
             android:id="@+id/namaRestoranFav"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-light"
@@ -93,7 +93,6 @@
             app:layout_constraintTop_toBottomOf="@id/namaRestoranFav"
             app:tint="@color/quantum_yellow" />
         <ImageView
-            android:id="@+id/star5"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@drawable/ic_star_border"
@@ -101,29 +100,29 @@
             app:layout_constraintTop_toBottomOf="@id/namaRestoranFav"
             app:tint="@color/black" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Rp. 10.000,00"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/ratingRestoran"
-            app:layout_constraintTop_toBottomOf="@+id/star1" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView10"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="sans-serif-medium"-->
+<!--            android:text="Rp. 10.000,00"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/ratingRestoran"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/star1" />-->
 
-        <TextView
-            android:id="@+id/hargaReal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Rp 20.000,00"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+<!--        <TextView-->
+<!--            android:id="@+id/hargaReal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Rp 20.000,00"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="10sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/textView10"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView10" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
