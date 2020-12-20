@@ -9,73 +9,60 @@
     android:orientation="horizontal"
     android:padding="12dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/layoutfotomakanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
-        app:cardBackgroundColor="@color/background2">
-
-        <ImageView
-            android:id="@+id/fotoMakanan"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="14dp"
-            android:background="@drawable/berger" />
-    </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/tv_item_name"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Roti Bakar Original"
+        android:layout_gravity="center_vertical"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/layoutfotomakanan"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/harga_checkout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Rp. 20.000"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@id/layoutfotomakanan"
-        app:layout_constraintTop_toBottomOf="@id/tv_item_name"
-        app:layout_constraintVertical_bias="0" />
-
-    <TextView
-        android:id="@+id/qty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="x2"
-        android:textColor="@color/gray"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hapus"
-        app:layout_constraintEnd_toStartOf="@+id/hapus"
-        app:layout_constraintTop_toTopOf="@+id/hapus" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf=" parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        tools:text="Nasi goreng sapi telur mata sapi" />
 
     <Button
         android:id="@+id/hapus"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:background="@drawable/ic_baseline_delete_outline_24"
         android:textColor="@color/gray"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toEndOf="@+id/qty"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <TextView
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x2"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/harga_checkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="40.000"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toEndOf="@id/qty"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

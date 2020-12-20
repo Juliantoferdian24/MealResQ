@@ -1,6 +1,7 @@
 package com.example.mealresq
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.alert_dialog.view.*
+import org.jetbrains.anko.activityManager
 
 class CartActivity: AppCompatActivity() {
 
@@ -81,6 +83,10 @@ class CartActivity: AppCompatActivity() {
             buttonCart.text = "----"
         } else{
             buttonCart.text = "Rp $total.000"
+        }
+        buttonCart.setOnClickListener{
+            val intent = Intent(this@CartActivity, AfterOrder::class.java)
+            startActivity(intent)
         }
     }
 }

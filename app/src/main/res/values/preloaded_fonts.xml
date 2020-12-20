@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/cedarville_cursive</item>
         <item>@font/life_savers</item>
+        <item>@font/poppins</item>
     </array>
 </resources>

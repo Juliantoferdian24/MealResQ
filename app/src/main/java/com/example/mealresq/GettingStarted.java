@@ -32,8 +32,8 @@ public class GettingStarted extends AppCompatActivity {
 
 
         gettingStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                @Override
+                public void onClick(View view) {
                 AsyncTask<String, String, String> started = new AsyncTask<String, String, String>() {
                     @Override
                     protected String doInBackground(String... params) {

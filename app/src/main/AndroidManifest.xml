@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".EditProfileData"></activity>
+        <activity android:name=".AfterOrder"></activity>
+        <activity android:name=".EditProfileData" />
         <activity android:name=".EditProfile" />
         <activity android:name=".LoginPage" />
         <activity android:name=".SignupPage" />
